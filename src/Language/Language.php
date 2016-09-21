@@ -34,7 +34,7 @@ class Language
 
     public function getLocaleCode()
     {
-        return $this->locale()->code;
+        return $this->getSessionLocale();
     }
 
     public function getLocaleKeywords()
@@ -49,7 +49,7 @@ class Language
 
     protected function locale()
     {
-        $code = Session::get('locale');
+        $code = $this->getSessionLocale();
         return \DB::table('languages')
             ->select(['name', 'code', 'keywords', 'description'])
             ->where([
@@ -82,6 +82,11 @@ class Language
     protected function setSessionLocale($code)
     {
         Session::put(['locale' => $code]);
+    }
+
+    protected function getSessionLocale()
+    {
+        return Session::get('locale');
     }
 
     protected function setDefaultLocale()
