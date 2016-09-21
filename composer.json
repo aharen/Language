@@ -1,0 +1,21 @@
+{
+    "name": "aharen/language",
+    "description": "Multi language for Laravel 5.3+",
+    "type": "library",
+    "keywords": ["language", "multi-lingual", "translate", "laravel"],
+    "require": {},
+    "license": "MIT",
+    "authors": [{
+        "name": "Ahmed Khusaam",
+        "email": "hello@khusaam.com"
+    }],
+    "minimum-stability": "1.0",
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "aharen\\": "src/"
+        }
+    }
+}
