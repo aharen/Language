@@ -25,7 +25,7 @@ Run `vendor:publish` artisan command to publish the database migration files
 
 In addition you will have to update `locale` and `fallback_locale` in `config/app.php` to your desired default language, since the package uses these to maintain set locale and default locale.
 
-This will enables the use of Laravels default localization methods and directives such as 'echo trans('messages.welcome');` and `@lang('messages.welcome')`.
+This will enable the use of Laravels default localization methods and directives such as 'echo trans('messages.welcome');` and `@lang('messages.welcome')`. You can store your translations in the default `resources/lang` directory.
 
 ## Setup
 
