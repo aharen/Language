@@ -15,7 +15,7 @@ Add the service provider to `providers` array in `config/app.php`
 
 Add the facade to `aliases` array in `config/app.php`
 
-`aharen\Language\LanguageServiceProvider::class,`
+`'Language' => 'aharen\Language\Facades\Language::class',`
 
 Run `vendor:publish` artisan command to publish the database migration files
 
