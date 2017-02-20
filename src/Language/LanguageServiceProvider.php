@@ -14,7 +14,10 @@ class LanguageServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadMigrationsFrom(__DIR__ . '../../migrations');
+        $this->publishes([
+            __DIR__ . '/../../migrations/' => base_path('/database/migrations'),
+            __DIR__ . '/../../seeds/' => base_path('/database/seeds'),
+        ]);
     }
 
     /**
