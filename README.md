@@ -17,11 +17,17 @@ Add the facade to `aliases` array in `config/app.php`
 
 `'Language' => 'aharen\Language\Facades\Language::class',`
 
-Run `vendor:publish` artisan command to publish the database migration files
+Run `vendor:publish` artisan command to publish the database migration file and the default seeder
 
 `php artisan vendor:publish`
 
-**Optional** default seeder file is provided (vendor/aharen/seeders) to create the default language. The provided seeder will create English as the default language but you can change the seeder to any language you like. 
+Now add the `DefaultLanguageSeeder` to `database/DatabaseSeeder.php`
+
+`$this->call(DefaultLanguageSeeder::class);`
+
+You might need to run `composer dumpautoload` for the seeder to start working 
+
+**Optional** The provided seeder will create English as the default language but you can change the seeder to any language you like. 
 
 In addition you will have to update `locale` and `fallback_locale` in `config/app.php` to your desired default language, since the package uses these to maintain set locale and default locale.
 
@@ -33,7 +39,7 @@ You should add a route prefix to your routes in one of the following ways:
 
 1. In your routes file to the route group
 
-        Route::group(['middleware' => 'language', 'prefix' => \App::getLocale()], function () {
+        Route::group(['prefix' => \App::getLocale()], function () {
           // your routes here
         });
 
