@@ -15,7 +15,7 @@ class Language
 
         } else {
             if ($code !== '404') {
-                return redirect($this->getLocaleCode() . '/404')->send();
+                return redirect($this->getLocaleCode() . '/')->send();
             }
 
             $this->setDefaultLocale();
