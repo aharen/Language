@@ -9,17 +9,22 @@ class Language
 
     public function validate($code)
     {
-
-        if ($this->isValidLocale($code) === true) {
-            $this->setLocale($code);
-
-        } else {
-            if ($code !== '404') {
-                return redirect($this->getLocaleCode() . '/')->send();
-            }
-
+        if (in_array($code, config('language.ignore'))) {
             $this->setDefaultLocale();
+        } else {
+
+            if ($this->isValidLocale($code) === true) {
+                $this->setLocale($code);
+
+            } else {
+                if ($code !== '404') {
+                    return redirect($this->getLocaleCode() . '/')->send();
+                }
+
+                $this->setDefaultLocale();
+            }
         }
+
     }
 
     public function getLocale()

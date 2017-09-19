@@ -16,7 +16,8 @@ class LanguageServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__ . '/../../migrations/' => base_path('/database/migrations'),
-            __DIR__ . '/../../seeds/' => base_path('/database/seeds'),
+            __DIR__ . '/../../seeds/'      => base_path('/database/seeds'),
+            __DIR__ . '/../../config/'     => base_path('/config'),
         ]);
     }
 
