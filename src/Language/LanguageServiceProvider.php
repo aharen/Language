@@ -30,6 +30,9 @@ class LanguageServiceProvider extends ServiceProvider
     {
         if (!\App::runningInConsole()) {
             $language_segment = \Request::segment(1);
+            if ($language_segment === null) {
+                return redirect(config('app.locale'))->send();
+            }
             Language::validate($language_segment);
         }
     }
